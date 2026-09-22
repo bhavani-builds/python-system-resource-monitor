@@ -1,0 +1,78 @@
+import platform
+import os
+from datetime import datetime
+
+
+def get_system_information():
+    information = {
+        "operating_system": platform.system(),
+        "os_version": platform.version(),
+        "machine": platform.machine(),
+        "processor": platform.processor(),
+        "hostname": platform.node(),
+        "python_version": platform.python_version(),
+        "cpu_count": os.cpu_count(),
+        "current_time": datetime.now()
+    }
+
+    return information
+
+
+def display_system_information(information):
+    print("\n" + "=" * 50)
+    print("           SYSTEM INFORMATION")
+    print("=" * 50)
+
+    print(
+        f"Operating System : "
+        f"{information['operating_system']}"
+    )
+
+    print(
+        f"OS Version       : "
+        f"{information['os_version']}"
+    )
+
+    print(
+        f"Machine          : "
+        f"{information['machine']}"
+    )
+
+    print(
+        f"Processor        : "
+        f"{information['processor']}"
+    )
+
+    print(
+        f"Hostname         : "
+        f"{information['hostname']}"
+    )
+
+    print(
+        f"Python Version   : "
+        f"{information['python_version']}"
+    )
+
+    print(
+        f"CPU Cores        : "
+        f"{information['cpu_count']}"
+    )
+
+    print(
+        f"Current Time     : "
+        f"{information['current_time']}"
+    )
+
+    print("=" * 50)
+
+
+def main():
+    print("===== PYTHON SYSTEM RESOURCE MONITOR =====")
+
+    information = get_system_information()
+
+    display_system_information(information)
+
+
+if __name__ == "__main__":
+    main()
